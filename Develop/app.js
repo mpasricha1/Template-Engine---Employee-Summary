@@ -3,65 +3,55 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const path = require("path");
 const fs = require("fs");
-const generateProgressBar = require("./utils/generateProgressBar.js");
 const prompts = require("./utils/EmployeePrompts");
+const screenPrint = require("./utils/screenMessages.js");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-let availableEmpId = 1 
-
-
-
-async function generateIdNumber(){
-	const delay = ms => new Promise(res => setTimeout(res, ms)); 
-
-	console.log("")
-	console.log("Generating Employee ID"); 
-	// generateProgressBar();
-	// await delay(1000);
-
-	console.log(`New Employee Id: ${availableEmpId}`); 
-	availableEmpId++; 
-	
-	
-	 
-}
-
+let availableEmpId = 1;
+const empList = []; 
 
 async function init(){
 	try{
 		let empInfo = await prompts.newEmployeePrompt(); 
-		generateIdNumber();
+		empInfo.id = availableEmpId; 
 
-		console.log("Some more information is needed for this role");
+		screenPrint.printEmpId(availableEmpId);	
+		screenPrint.additionalInfo(); 
+		availableEmpId++;
 
 		if(empInfo.role === "Manager"){
 			let addInfo = await prompts.managerPrompt();
-
 			empInfo.officeNumber = addInfo.officeNumber;
-			console.log(empInfo)
+
+			let manager = new Manager(empInfo.name, empInfo.id, empInfo.email, empInfo.officeNumber);
+			empList.push(manager); 
+
 		}else if(empInfo.role === "Engineer"){
 			let addInfo = await prompts.engineerPrompt();
-
 			empInfo.github = addInfo.github;
-			console.log(empInfo)
+
+			let engineer = new Engineer(empInfo.name, empInfo.id, empInfo.email, empInfo.github);
+			empList.push(engineer); 
 		}else{
 			let addInfo = await prompts.internPrompt();
-
 			empInfo.school = addInfo.school;
-			console.log(empInfo)
-		}
-		
 
+			let intern = new Intern(empInfo.name, empInfo.id, empInfo.email, empInfo.school); 
+			empList.push(intern)
+		}
+		console.log(empList);
 	}catch(err){
 		console.log(err)
 	}
 }
 
+screenPrint.printWelcomeScreen(); 
 init();
+// console.log(empList);
 
 
 // Write code to use inquirer to gather information about the development team members,
