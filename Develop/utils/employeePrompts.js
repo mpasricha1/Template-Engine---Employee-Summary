@@ -1,54 +1,65 @@
 const inquirer = require("inquirer");
 
-function newEmployeePrompt() {
+const newEmployeePrompt = () => {
 	return inquirer.prompt([
 		{
 			type: "input", 
 			name: "name", 
-			message: "Enter Employee Name: ", 
+			message: "Enter employee name: ", 
 		}, 
 		{
 			type: "input", 
 			name: "email", 
-			message: "Enter Employee Email: "
+			message: "Enter employee email: "
 		},
 		{
 			type: "list", 
 			name: "role", 
-			message: "Select Employee Role",
+			message: "Select employee role",
 			choices: ["Manager", "Engineer", "Intern"]
 		}
 		]);
 }
 
-function managerPrompt(){
+const managerPrompt = () =>{
 	return inquirer.prompt([
 		{	
 			type: "input", 
 			name: "officeNumber", 
-			message: "Enter Manager's Office Number: "
+			message: "Enter manager's office number: "
 		}
 	])
 }; 
 
-function engineerPrompt(){
+const engineerPrompt = () => {
 	return inquirer.prompt([
 		{
 			type:"input", 
 			name: "github", 
-			message: "Enter Engineer's Github Username: "
+			message: "Enter engineer's github username: "
 		}
 	])
 };
 
-function internPrompt(){
+const internPrompt = () =>{
 	return inquirer.prompt([
 		{
 			type: "input", 
 			name: "school", 
-			message: "Enter Intern's School Name: "
+			message: "Enter intern's school name: "
 		}
 	])
 };
 
-module.exports = {newEmployeePrompt, managerPrompt, engineerPrompt, internPrompt}
+const addAnotherEmployee = () =>{
+	return inquirer.prompt([
+		{
+			type: "input", 
+			name: "answer", 
+			message: "Do you have another employee to enter? Y/N"
+		}
+	])
+	
+}
+
+module.exports = {newEmployeePrompt, managerPrompt, engineerPrompt, internPrompt, addAnotherEmployee}

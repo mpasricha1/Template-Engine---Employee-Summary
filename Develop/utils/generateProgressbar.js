@@ -1,6 +1,6 @@
 const cliProgress = require('cli-progress');
 
-function generateProgressBar(){
+const generateProgressBar = () =>{
 	const bar1 = new cliProgress.SingleBar({stopOnComplete: true}, cliProgress.Presets.rect);
 	bar1.start(100,0);
 	

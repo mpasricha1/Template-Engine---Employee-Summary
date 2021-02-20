@@ -43,7 +43,14 @@ async function init(){
 			let intern = new Intern(empInfo.name, empInfo.id, empInfo.email, empInfo.school); 
 			empList.push(intern)
 		}
-		console.log(empList);
+		
+		let answer = await prompts.addAnotherEmployee(); 
+		console.log(empList)
+		if(answer.answer.toLowerCase() === 'y' || answer.answer.toLowerCase() === 'yes'){
+			init();
+		}else{
+			return;
+		}
 	}catch(err){
 		console.log(err)
 	}

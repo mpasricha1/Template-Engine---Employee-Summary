@@ -1,6 +1,6 @@
 const generateProgressBar = require("./generateProgressBar.js");
 
-function printWelcomeScreen(){
+const printWelcomeScreen = () => {
 	console.log("")
 	console.log("***********************************************");
 	console.log("                 Welcome               	    ");
@@ -9,17 +9,17 @@ function printWelcomeScreen(){
 	console.log("***********************************************")
 };
 
-function additionalInfo(){
+const additionalInfo = () =>{
 	console.log("")
 	console.log("Some more information is needed for this role");
 };
 
-function printEmpId(availableEmpId){
+const printEmpId = (availableEmpId) =>{
 	console.log("")
 	console.log(`New Employee Id: ${availableEmpId}`); 
 }
 
-function generateId(){
+const generateId = () =>{
 	console.log("Generating Employee ID"); 
 	generateProgressBar();
 }
