@@ -1,17 +1,69 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const generateProgressBar = require("./utils/generateProgressBar.js");
+const prompts = require("./utils/EmployeePrompts");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-const eng = new Engineer("bob", 1, "at@at.com", "test Name"); 
-console.log(eng);
+let availableEmpId = 1 
+
+
+
+async function generateIdNumber(){
+	const delay = ms => new Promise(res => setTimeout(res, ms)); 
+
+	console.log("")
+	console.log("Generating Employee ID"); 
+	// generateProgressBar();
+	// await delay(1000);
+
+	console.log(`New Employee Id: ${availableEmpId}`); 
+	availableEmpId++; 
+	
+	
+	 
+}
+
+
+async function init(){
+	try{
+		let empInfo = await prompts.newEmployeePrompt(); 
+		generateIdNumber();
+
+		console.log("Some more information is needed for this role");
+
+		if(empInfo.role === "Manager"){
+			let addInfo = await prompts.managerPrompt();
+
+			empInfo.officeNumber = addInfo.officeNumber;
+			console.log(empInfo)
+		}else if(empInfo.role === "Engineer"){
+			let addInfo = await prompts.engineerPrompt();
+
+			empInfo.github = addInfo.github;
+			console.log(empInfo)
+		}else{
+			let addInfo = await prompts.internPrompt();
+
+			empInfo.school = addInfo.school;
+			console.log(empInfo)
+		}
+		
+
+	}catch(err){
+		console.log(err)
+	}
+}
+
+init();
+
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
