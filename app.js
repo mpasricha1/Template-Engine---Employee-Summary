@@ -11,8 +11,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-let availableEmpId = 1;
-const empList = []; 
+const empList = [];
+let availableEmpId = 1; 
 
 async function init(){
 	try{
@@ -58,7 +58,7 @@ async function init(){
 }
 
 const saveHTMLFile = (file) => {
-	fs.writeFile("./output/team.html", file, (err) =>{
+	fs.writeFile(outputPath, file, (err) =>{
 		err ? console.log(err) : console.log("File Created"); 
 	});
 };
