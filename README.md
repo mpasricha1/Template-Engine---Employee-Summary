@@ -28,7 +28,7 @@ Each class has a series of test cases. Refer to the folder /test/(class) for the
 Questions can be sent to the following email markp862@gmail.com 
 OR you can visit my github page [mpasricha1](https://github.com/mpasricha1).
 
-##Sample Output
+## Sample Output
 
-![Walkthrough](./sample_output.png)
+![Walkthrough](sample_output.png)
 
