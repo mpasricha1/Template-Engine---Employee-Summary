@@ -45,7 +45,6 @@ async function init(){
 		}
 		
 		let answer = await prompts.addAnotherEmployee(); 
-		console.log(empList)
 		if(answer.answer.toLowerCase() === 'y' || answer.answer.toLowerCase() === 'yes'){
 			init();
 		}else{

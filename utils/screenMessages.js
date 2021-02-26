@@ -1,5 +1,3 @@
-const generateProgressBar = require("./generateProgressBar.js");
-
 const printWelcomeScreen = () => {
 	console.log("")
 	console.log("***********************************************");
