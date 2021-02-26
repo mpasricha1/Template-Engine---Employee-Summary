@@ -15,7 +15,7 @@ This is a node cli application that helps build a quick and easy web page for yo
 ## Installation
 This applications has to required modules, jest in order to test and inquirer in order to take arguments from the command line. A package.json file is supplied. Run npm i to install required modules. Then node index to run the application. 
 ## Usage 
-[![Walkthrough](screen-capture.gif)]
+![Walkthrough](/screenshots/screen-capture.gif)
 
 The application is accessed 100% through the command line, except for viewing the web page of course. There are 4 classes: Employee, Manager, Engineer and Intern. Employee is the base class and extends the other three classes. There are two util files as well that handle most of the information on the screen. employPrompts contains all the prompts that are printed on the screen. screenMessages is a util file that contains any other messages not contained within a prompt. 
 ## License
@@ -30,5 +30,5 @@ OR you can visit my github page [mpasricha1](https://github.com/mpasricha1).
 
 ## Sample Output
 
-![Walkthrough](sample_output.png)
+[![Walkthrough](/screenshots/sample_output.png)]
 
