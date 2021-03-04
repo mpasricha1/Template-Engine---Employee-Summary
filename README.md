@@ -30,5 +30,6 @@ OR you can visit my github page [mpasricha1](https://github.com/mpasricha1).
 
 ## Sample Output
 
-![Walkthrough](./screenshots/sample_output.png)
+![sample_output](https://user-images.githubusercontent.com/61244786/109904750-af572180-7c6b-11eb-98c1-1c00d0f30f69.PNG)
+
 
